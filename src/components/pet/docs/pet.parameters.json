@@ -1,0 +1,34 @@
+{
+  "getAllPets": [
+    {
+      "name": "status",
+      "in": "query",
+      "description": "Status values that need to be considered for filter",
+      "required": false,
+      "schema": {
+        "type": "string",
+        "default": "available",
+        "enum": ["available", "pending", "sold"]
+      }
+    },
+    {
+      "name": "tags",
+      "in": "query",
+      "description": "Tags to filter by",
+      "required": false,
+      "schema": { "type": "array", "items": { "type": "string" } }
+    },
+    {
+      "$ref": "../../../common/operations/docs/operations.queries.json#/filter"
+    },
+    {
+      "$ref": "../../../common/operations/docs/operations.queries.json#/orderBy"
+    },
+    {
+      "$ref": "../../../common/operations/docs/operations.queries.json#/limit"
+    },
+    {
+      "$ref": "../../../common/operations/docs/operations.queries.json#/skip"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "ErrorPayload": {
+    "required": ["name", "message"],
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "example": "someErrorCode"
+      },
+      "message": {
+        "type": "string",
+        "example": "Error message"
+      },
+      "target": {
+        "type": "string",
+        "example": "Name"
+      },
+      "details": {
+        "type": "array",
+        "items": {
+          "$ref": "../docs/openapi.json#/components/schemas/AnyValue"
+        }
+      }
+    }
+  },
+  "ErrorResponse": {
+    "required": ["error"],
+    "type": "object",
+    "properties": {
+      "error": {
+        "$ref": "#/ErrorPayload"
+      }
+    }
+  }
+}

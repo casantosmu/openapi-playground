@@ -1,0 +1,22 @@
+{
+  "badRequest": {
+    "description": "Invalid values supplied",
+    "content": {
+      "application/json": {
+        "schema": {
+          "$ref": "../error.schemas.json#/ErrorResponse"
+        }
+      }
+    }
+  },
+  "notFound": {
+    "description": "Resource not found",
+    "content": {
+      "application/json": {
+        "schema": {
+          "$ref": "../error.schemas.json#/ErrorResponse"
+        }
+      }
+    }
+  }
+}

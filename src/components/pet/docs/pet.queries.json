@@ -1,0 +1,9 @@
+{
+  "petId": {
+    "name": "petId",
+    "in": "path",
+    "description": "ID of pet to return",
+    "required": true,
+    "schema": { "type": "integer" }
+  }
+}

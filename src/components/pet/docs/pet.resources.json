@@ -1,0 +1,149 @@
+{
+  "pet": {
+    "get": {
+      "tags": ["pet"],
+      "summary": "Find pet by ID",
+      "description": "Returns a single pet",
+      "operationId": "getPetById",
+      "parameters": [
+        {
+          "$ref": "./pet.queries.json#/petId"
+        }
+      ],
+      "responses": {
+        "200": {
+          "$ref": "./pet.responses.json#/pet"
+        },
+        "400": {
+          "$ref": "../../../common/error/docs/error.responses.json#/badRequest"
+        },
+        "404": {
+          "$ref": "../../../common/error/docs/error.responses.json#/notFound"
+        }
+      }
+    },
+    "put": {
+      "tags": ["pet"],
+      "summary": "Update an existing pet",
+      "description": "Update an existing pet by Id",
+      "operationId": "updatePetById",
+      "parameters": [
+        {
+          "$ref": "./pet.queries.json#/petId"
+        }
+      ],
+      "requestBody": {
+        "description": "Update an existent pet in the store",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "../pet.schemas.json#/Pet" }
+          }
+        },
+        "required": true
+      },
+      "responses": {
+        "200": {
+          "$ref": "./pet.responses.json#/pet"
+        },
+        "400": {
+          "$ref": "../../../common/error/docs/error.responses.json#/badRequest"
+        },
+        "404": {
+          "$ref": "../../../common/error/docs/error.responses.json#/notFound"
+        }
+      }
+    },
+    "delete": {
+      "tags": ["pet"],
+      "summary": "Deletes a pet",
+      "description": "delete a pet",
+      "operationId": "deletePetById",
+      "parameters": [
+        {
+          "$ref": "./pet.queries.json#/petId"
+        }
+      ],
+      "responses": {
+        "200": {
+          "$ref": "./pet.responses.json#/pet"
+        },
+        "400": {
+          "$ref": "../../../common/error/docs/error.responses.json#/badRequest"
+        },
+        "404": {
+          "$ref": "../../../common/error/docs/error.responses.json#/notFound"
+        }
+      }
+    }
+  },
+  "pets": {
+    "get": {
+      "tags": ["pet"],
+      "summary": "Finds Pets",
+      "description": "",
+      "operationId": "getAllPets",
+      "parameters": {
+        "$ref": "./pet.parameters.json#/getAllPets"
+      },
+      "responses": {
+        "200": {
+          "$ref": "./pet.responses.json#/pets"
+        },
+        "400": {
+          "$ref": "../../../common/error/docs/error.responses.json#/badRequest"
+        }
+      }
+    },
+    "post": {
+      "tags": ["pet"],
+      "summary": "Add a new pet to the store",
+      "description": "Add a new pet to the store",
+      "operationId": "createPet",
+      "requestBody": {
+        "description": "Create a new pet in the store",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "../pet.schemas.json#/Pet" }
+          }
+        },
+        "required": true
+      },
+      "responses": {
+        "200": {
+          "$ref": "./pet.responses.json#/pets"
+        },
+        "400": {
+          "$ref": "../../../common/error/docs/error.responses.json#/badRequest"
+        }
+      }
+    }
+  },
+  "photos": {
+    "post": {
+      "tags": ["pet"],
+      "summary": "Uploads a photo",
+      "description": "",
+      "operationId": "uploadPhotoByPetId",
+      "parameters": [
+        {
+          "$ref": "./pet.queries.json#/petId"
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/octet-stream": {
+            "schema": { "type": "string", "format": "binary" }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "$ref": "./pet.responses.json#/pet"
+        },
+        "400": {
+          "$ref": "../../../common/error/docs/error.responses.json#/badRequest"
+        }
+      }
+    }
+  }
+}

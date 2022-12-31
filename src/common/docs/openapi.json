@@ -1,0 +1,53 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Petstore - OpenAPI 3.0",
+    "description": "This is a Pet Store Server based on the OpenAPI 3.0 specification.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://{base_url}/{env_id}",
+      "variables": {
+        "base_url": {
+          "default": "my.app.com",
+          "description": "server"
+        },
+        "env_id": {
+          "default": "v1",
+          "description": "path selector"
+        }
+      }
+    }
+  ],
+  "tags": [
+    {
+      "name": "pet",
+      "description": "Everything about your Pets"
+    }
+  ],
+  "paths": {
+    "/pets": {
+      "$ref": "../../components/pet/docs/pet.resources.json#/pets"
+    },
+    "/pets/{petId}": {
+      "$ref": "../../components/pet/docs/pet.resources.json#/pet"
+    },
+    "/pets/{petId}/photos": {
+      "$ref": "../../components/pet/docs/pet.resources.json#/photos"
+    }
+  },
+  "components": {
+    "schemas": {
+      "AnyValue": {
+        "description": "Can be any value, including `null`."
+      },
+      "Category": { "$ref": "../../components/pet/pet.schemas.json#/Category" },
+      "Tag": { "$ref": "../../components/pet/pet.schemas.json#/Tag" },
+      "Pet": { "$ref": "../../components/pet/pet.schemas.json#/Pet" },
+      "ErrorResponse": {
+        "$ref": "../../common/error/error.schemas.json#/ErrorResponse"
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "Pet": {
+    "required": ["name", "photoUrls"],
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "example": 10
+      },
+      "name": {
+        "type": "string",
+        "example": "doggie"
+      },
+      "category": {
+        "$ref": "#/Category"
+      },
+      "photoUrls": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/Tag"
+        }
+      },
+      "status": {
+        "type": "string",
+        "description": "pet status in the store",
+        "enum": ["available", "pending", "sold"]
+      }
+    }
+  },
+  "Category": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "format": "int64",
+        "example": 1
+      },
+      "name": {
+        "type": "string",
+        "example": "Dogs"
+      }
+    }
+  },
+  "Tag": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "format": "int64"
+      },
+      "name": {
+        "type": "string"
+      }
+    }
+  }
+}
